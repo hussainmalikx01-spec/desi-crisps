@@ -1,0 +1,16 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="packBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1a13"/>
+      <stop offset="100%" stop-color="#0A0A08"/>
+    </linearGradient>
+  </defs>
+  <path d="M130 90h140l16 24v190a20 20 0 01-20 20H134a20 20 0 01-20-20V114z" fill="url(#packBody)" stroke="#C9A227" stroke-width="2.5"/>
+  <path d="M130 90l16-24h108l16 24" fill="none" stroke="#C9A227" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="200" cy="205" r="46" fill="none" stroke="#C9A227" stroke-width="2"/>
+  <circle cx="200" cy="205" r="34" fill="none" stroke="#D4AF37" stroke-width="1"/>
+  <text x="200" y="198" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="15" font-weight="600">DESI</text>
+  <text x="200" y="218" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="15" font-weight="600">CRISPS</text>
+  <path d="M160 270h80M150 285h100" stroke="#8A6F22" stroke-width="2" stroke-linecap="round"/>
+  <text x="200" y="345" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="20" letter-spacing="2">FINAL PACKET</text>
+</svg>

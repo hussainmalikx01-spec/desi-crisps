@@ -1,0 +1,18 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chipGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0D98C"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M150 260c-16-30-8-60 20-70 20-8 44 4 52 24 10-16 34-18 48-4 16 16 12 42-10 54-24 14-70 22-110-4z" fill="url(#chipGrad)"/>
+  </g>
+  <path d="M120 110l14 26M170 90v28M220 92l-8 28M262 108l-16 26M290 145l-22 20" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="170" cy="230" r="3" fill="#8A6F22"/>
+  <circle cx="200" cy="245" r="2.5" fill="#8A6F22"/>
+  <circle cx="225" cy="225" r="3" fill="#8A6F22"/>
+  <circle cx="185" cy="255" r="2" fill="#8A6F22"/>
+  <circle cx="215" cy="255" r="2.5" fill="#8A6F22"/>
+  <text x="200" y="345" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="20" letter-spacing="2">SEASONING</text>
+</svg>

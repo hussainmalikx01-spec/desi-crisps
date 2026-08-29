@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sliceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0D98C"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <ellipse cx="140" cy="240" rx="55" ry="20" fill="url(#sliceGrad)" transform="rotate(-8 140 240)"/>
+    <ellipse cx="200" cy="220" rx="58" ry="21" fill="url(#sliceGrad)" transform="rotate(-4 200 220)"/>
+    <ellipse cx="262" cy="235" rx="55" ry="20" fill="url(#sliceGrad)" transform="rotate(6 262 235)"/>
+    <ellipse cx="170" cy="270" rx="52" ry="18" fill="#C9A227" opacity="0.85" transform="rotate(-10 170 270)"/>
+    <ellipse cx="235" cy="280" rx="52" ry="18" fill="#C9A227" opacity="0.85" transform="rotate(8 235 280)"/>
+  </g>
+  <g stroke="#8A6F22" stroke-width="1" opacity="0.5" fill="none">
+    <ellipse cx="140" cy="240" rx="40" ry="14" transform="rotate(-8 140 240)"/>
+    <ellipse cx="200" cy="220" rx="42" ry="15" transform="rotate(-4 200 220)"/>
+  </g>
+  <path d="M215 90l-6 90" stroke="#C9A227" stroke-width="4" stroke-linecap="round"/>
+  <rect x="192" y="70" width="46" height="26" rx="4" fill="#0A0A08" stroke="#C9A227" stroke-width="2"/>
+  <text x="200" y="345" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="20" letter-spacing="2">THIN SLICING</text>
+</svg>

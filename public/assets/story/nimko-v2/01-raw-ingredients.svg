@@ -1,0 +1,15 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glowN" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#F0D98C" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#F0D98C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="200" cy="220" r="170" fill="url(#glowN)"/>
+  <ellipse cx="150" cy="220" rx="55" ry="45" fill="#D4AF37"/>
+  <g fill="#8A6F22"><circle cx="130" cy="205" r="3"/><circle cx="150" cy="230" r="3"/><circle cx="168" cy="210" r="3"/><circle cx="140" cy="240" r="2.5"/><circle cx="165" cy="235" r="2.5"/></g>
+  <ellipse cx="255" cy="235" rx="48" ry="38" fill="#C9A227"/>
+  <g fill="#5c4a15"><circle cx="240" cy="225" r="4"/><circle cx="265" cy="240" r="4"/><circle cx="250" cy="250" r="3.5"/></g>
+  <ellipse cx="195" cy="150" rx="34" ry="28" fill="#F0D98C"/>
+  <text x="200" y="345" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="18" letter-spacing="1.5">RAW INGREDIENTS</text>
+</svg>

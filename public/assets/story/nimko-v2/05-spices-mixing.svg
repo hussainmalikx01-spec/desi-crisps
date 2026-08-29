@@ -1,0 +1,19 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bowlGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1a13"/>
+      <stop offset="100%" stop-color="#0A0A08"/>
+    </linearGradient>
+  </defs>
+  <path d="M90 190c0 70 50 110 110 110s110-40 110-110z" fill="url(#bowlGrad)" stroke="#C9A227" stroke-width="3"/>
+  <ellipse cx="200" cy="190" rx="110" ry="26" fill="#D4AF37"/>
+  <g fill="#8A6F22">
+    <circle cx="160" cy="185" r="4"/><circle cx="200" cy="195" r="4"/><circle cx="240" cy="182" r="4"/>
+    <circle cx="180" cy="200" r="3"/><circle cx="220" cy="200" r="3"/>
+  </g>
+  <g fill="#C9A227" opacity="0.9">
+    <circle cx="140" cy="150" r="6"/><circle cx="260" cy="145" r="6"/><circle cx="200" cy="125" r="6"/>
+  </g>
+  <path d="M200 125c0-30 20-40 20-40" stroke="#C9A227" stroke-width="2" fill="none" opacity="0.5"/>
+  <text x="200" y="350" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="18" letter-spacing="1.5">SPICES &amp; NUTS</text>
+</svg>

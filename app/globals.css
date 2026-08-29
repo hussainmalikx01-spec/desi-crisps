@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base surfaces */
+  --color-ink: #0a0a08;
+  --color-ink-soft: #16140f;
+  --color-ink-card: #1c1a13;
+
+  /* Gold family — pulled from the emblem */
+  --color-gold: #c9a227;
+  --color-gold-bright: #d4af37;
+  --color-gold-light: #f0d98c;
+  --color-gold-dim: #8a6f22;
+
+  /* Warm neutrals for text/light sections */
+  --color-cream: #f7f2e4;
+  --color-cream-dim: #c9c2ac;
+  --color-parchment: #efe8d6;
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-utility: var(--font-space-grotesk), ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-utility {
+  font-family: var(--font-utility);
+}
+
+/* Thin gold rule used throughout, e.g. under section eyebrows */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-gold) 0%, transparent 100%);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 2px;
+}
+
+/* Refined hero scroll indicator — a soft pulsing line, not a bouncing dot. */
+.scroll-line {
+  animation: scrollLinePulse 2.2s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes scrollLinePulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-line {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* Testimonials horizontal infinite-scroll marquee */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marqueeScroll 38s linear infinite;
+}
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  .marquee-track .marquee-duplicate {
+    display: none;
+  }
+}

@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductStatus {
+  PUBLISHED
+  COMING_SOON
+  OUT_OF_STOCK
+  DRAFT
+}
+
+enum ProductLine {
+  CHIPS
+  NIMKO
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  COD
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Product {
+  id          String         @id @default(cuid())
+  name        String
+  slug        String         @unique
+  line        ProductLine    @default(CHIPS)
+  description String
+  price       Decimal        @db.Decimal(10, 2)
+  salePrice   Decimal?       @db.Decimal(10, 2)
+  featured    Boolean        @default(false)
+  weightGrams Int?
+  stock       Int            @default(0)
+  status      ProductStatus  @default(DRAFT)
+  ingredients String?
+  nutrition   String?
+  images      ProductImage[]
+  orderItems  OrderItem[]
+  reviews     Review[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([line, status])
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  altText   String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String?
+  address   String
+  city      String
+  orders    Order[]
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id            String        @id @default(cuid())
+  customerId    String
+  customer      Customer      @relation(fields: [customerId], references: [id])
+  items         OrderItem[]
+  status        OrderStatus   @default(PENDING)
+  paymentMethod PaymentMethod @default(COD)
+  subtotal      Decimal       @db.Decimal(10, 2)
+  shippingFee   Decimal       @db.Decimal(10, 2) @default(0)
+  total         Decimal       @db.Decimal(10, 2)
+  notes         String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  unitPrice Decimal @db.Decimal(10, 2)
+}
+
+model Review {
+  id           String       @id @default(cuid())
+  productId    String?
+  product      Product?     @relation(fields: [productId], references: [id])
+  customerName String
+  rating       Int
+  comment      String
+  status       ReviewStatus @default(PENDING)
+  createdAt    DateTime     @default(now())
+}
+
+model AdminUser {
+  id                  String     @id @default(cuid())
+  email               String     @unique
+  passwordHash        String
+  name                String
+  failedLoginAttempts Int        @default(0)
+  lockedUntil         DateTime?
+  createdAt           DateTime   @default(now())
+  auditLogs           AuditLog[]
+}
+
+model AuditLog {
+  id          String    @id @default(cuid())
+  adminUserId String
+  adminUser   AdminUser @relation(fields: [adminUserId], references: [id])
+  action      String
+  targetId    String?
+  details     Json?
+  createdAt   DateTime  @default(now())
+}
+
+model SiteSettings {
+  id                    String   @id @default("singleton")
+  logoUrl               String?
+  heroImageUrl           String?
+  contactEmail          String?
+  contactPhone          String?
+  whatsappNumber        String?
+  instagramUrl          String?
+  facebookUrl           String?
+  tiktokUrl             String?
+  bannerText            String?
+  footerText            String?
+  freeDeliveryThreshold Int?     @default(1500)
+  standardShippingFee   Int?     @default(150)
+  faqItems              Json?
+  updatedAt             DateTime @updatedAt
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+// Flexible key-value store for editable page text (Hero, About, Legal
+// pages, etc.). Using key-value instead of dedicated columns means new
+// editable fields can be added later without a database migration.
+model SiteContent {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String   @db.Text
+  updatedAt DateTime @updatedAt
+}
+
+// Every stage of the scroll-story animations (potato→chip journey,
+// nimko journey). Fully admin-controlled: title, description, image,
+// order, and active/inactive — the public animation automatically
+// adapts to however many active stages exist for each line.
+model StoryStage {
+  id        String      @id @default(cuid())
+  line      ProductLine
+  sortOrder Int         @default(0)
+  label     String
+  caption   String
+  imageUrl  String
+  active    Boolean     @default(true)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([line, active, sortOrder])
+}
+
+// Cities where delivery is available. Admin can activate/deactivate a
+// city and set a per-city delivery fee; if a city has no fee set, the
+// SiteSettings.standardShippingFee is used as the fallback.
+model DeliveryCity {
+  id            String   @id @default(cuid())
+  name          String   @unique
+  active        Boolean  @default(true)
+  deliveryFee   Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// The "Our Story" brand documentary — separate from the potato/nimko
+// production-process animation (StoryStage above). This is a milestone
+// timeline (e.g. "2018 — Started in a family kitchen"), fully admin
+// controlled, independent of product line.
+model BrandStoryMilestone {
+  id          String   @id @default(cuid())
+  sortOrder   Int      @default(0)
+  title       String
+  description String
+  imageUrl    String
+  yearLabel   String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([active, sortOrder])
+}

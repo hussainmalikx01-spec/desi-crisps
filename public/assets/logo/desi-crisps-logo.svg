@@ -1,0 +1,8 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="96" fill="#0A0A08" stroke="#C9A227" stroke-width="3"/>
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#C9A227" stroke-width="1"/>
+  <text x="100" y="70" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="20" font-weight="600">DESI</text>
+  <text x="100" y="95" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="20" font-weight="600">CRISPS</text>
+  <path d="M60 115c10-10 70-10 80 0" stroke="#C9A227" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="100" y="145" text-anchor="middle" fill="#C9A227" font-family="Georgia, serif" font-size="9" letter-spacing="1">QUALITY YOU CAN TRUST</text>
+</svg>

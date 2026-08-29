@@ -1,0 +1,25 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0D98C" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="potatoBody2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C976"/>
+      <stop offset="100%" stop-color="#B08D22"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="200" cy="290" rx="150" ry="55" fill="url(#water)"/>
+  <ellipse cx="200" cy="290" rx="150" ry="55" fill="none" stroke="#C9A227" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="200" cy="235" rx="95" ry="70" fill="url(#potatoBody2)"/>
+  <g stroke="#F0D98C" stroke-width="2.5" stroke-linecap="round" opacity="0.8">
+    <path d="M130 130l-8 22"/>
+    <path d="M170 105l-5 24"/>
+    <path d="M215 100l3 24"/>
+    <path d="M260 115l10 22"/>
+    <path d="M290 150l14 18"/>
+  </g>
+  <circle cx="150" cy="260" r="4" fill="#8A6F22" opacity="0.5"/>
+  <circle cx="240" cy="220" r="3.5" fill="#8A6F22" opacity="0.5"/>
+  <text x="200" y="360" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="20" letter-spacing="2">WASHING</text>
+</svg>

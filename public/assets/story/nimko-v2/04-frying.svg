@@ -1,0 +1,24 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="fryGlowN" cx="50%" cy="55%" r="60%">
+      <stop offset="0%" stop-color="#F0D98C" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#F0D98C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="oilGradN" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8A6F22"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="240" r="150" fill="url(#fryGlowN)"/>
+  <ellipse cx="200" cy="255" rx="140" ry="42" fill="url(#oilGradN)"/>
+  <ellipse cx="200" cy="240" rx="140" ry="42" fill="none" stroke="#0A0A08" stroke-width="10"/>
+  <g stroke="#F0D98C" stroke-width="2" opacity="0.7">
+    <path d="M150 225l60 8M160 245l70 4M175 260l55 6"/>
+  </g>
+  <g stroke="#F0D98C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7">
+    <path d="M150 150c-6 14 8 18 2 32"/>
+    <path d="M210 130c-6 14 8 18 2 32"/>
+    <path d="M262 150c-6 14 8 18 2 32"/>
+  </g>
+  <text x="200" y="345" text-anchor="middle" fill="#F0D98C" font-family="Georgia, serif" font-size="20" letter-spacing="2">FRYING</text>
+</svg>
