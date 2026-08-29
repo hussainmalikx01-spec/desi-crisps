@@ -60,11 +60,24 @@ export default function ProcessStory({
           const idx = Math.min(Math.max(0, stages.length - 2), Math.floor(raw));
           const frac = raw - idx;
 
+          // Only actually crossfade during the middle slice of the
+          // scroll between two stages — each image stays fully, solely
+          // visible for most of its turn. This shortens how long two
+          // differently-shaped images overlap on screen, which is what
+          // reads as a "shake" during the transition.
+          const BLEND_START = 0.4;
+          const BLEND_END = 0.6;
+          let blend = 0;
+          if (frac <= BLEND_START) blend = 0;
+          else if (frac >= BLEND_END) blend = 1;
+          else blend = (frac - BLEND_START) / (BLEND_END - BLEND_START);
+          blend = blend * blend * (3 - 2 * blend); // smoothstep easing
+
           imageRefs.current.forEach((el, i) => {
             if (!el) return;
             let opacity = 0;
-            if (i === idx) opacity = 1 - frac;
-            else if (i === idx + 1) opacity = frac;
+            if (i === idx) opacity = 1 - blend;
+            else if (i === idx + 1) opacity = blend;
             el.style.opacity = String(opacity);
           });
 
