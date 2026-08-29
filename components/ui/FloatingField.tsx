@@ -28,7 +28,7 @@ export default function FloatingField(props: InputProps | TextareaProps) {
     "peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:-translate-y-0 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-cream-dim";
 
   if (props.as === "textarea") {
-    const { as: _as, ...textareaRest } = rest as TextareaHTMLAttributes<HTMLTextAreaElement>;
+    const { as: _as, ...textareaRest } = rest as TextareaHTMLAttributes<HTMLTextAreaElement> & { as?: string };
     return (
       <div className="relative">
         <textarea id={fieldId} placeholder=" " className={`${fieldClasses} ${className ?? ""}`} {...textareaRest} />
